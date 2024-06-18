@@ -19,12 +19,6 @@ jobs:
           output_file: "output-diagram.svg"
           artifact_name: "diagram"
           should_push: false
-      
-      - name: Upload diagram artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: "diagram"
-          path: "output-diagram.svg"
           
       - name: Get artifact
         uses: actions/download-artifact@v2
