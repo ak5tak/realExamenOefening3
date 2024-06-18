@@ -11,17 +11,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Generate visualization
-        uses: githubocto/repo-visualizer@v0.7.1
+      - name: Checkout code
+        uses: actions/checkout@master
+      - name: Update diagram
+        uses: githubocto/repo-visualizer@0.7.1
         with:
-          should_push: false  # Zorgt ervoor dat het diagram niet wordt gecommit en gepusht
-          artifact_name: diagram
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
+          commit: false
+      - name: Get artifact
+        uses: actions/download-artifact@v2
         with:
-          name: diagram
-          path: ./diagram.svg
+          name: "my-diagram"
+          path: "downloads"
