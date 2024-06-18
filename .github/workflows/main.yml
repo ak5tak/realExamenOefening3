@@ -16,7 +16,8 @@ jobs:
       - name: Update diagram
         uses: githubocto/repo-visualizer@0.7.1
         with:
-          commit: false
+          output_file: "diagram.svg"
+          excluded_paths: "dist,node_modules"
       - name: Get artifact
         uses: actions/download-artifact@v2
         with:
